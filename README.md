@@ -20,18 +20,22 @@ The system processes transcripts from Zoom recordings, extracts key technical in
 
 The system follows a simple LLM agent pipeline:
 1. Transcript ingestion
+
 Lecture transcripts are retrieved from the Attendee Zoom bot API or provided manually.
 
-2. Agent-based analysis
+3. Agent-based analysis
+
 A CrewAI agent powered by Gemini 1.5 Pro processes the transcript and performs:
 - summarization
 - key concept extraction
 - task identification
 
 3. Structured output generation
+
 The LLM converts unstructured transcript data into structured information including summaries, technical concepts, and assignment reminders.
 
-4. Workflow automation
+5. Workflow automation
+
 The processed results are:
 - stored in Notion via Notion API
 - sent to students via Gmail notifications
