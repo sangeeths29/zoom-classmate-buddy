@@ -1,38 +1,48 @@
-# Zoom Classmate Buddy
+# Zoom Classmate Buddy - AI Lecture Assistant
 
-This project automates the processing of lecture transcripts. It fetches Zoom bot transcripts from the **Attendee API**, summarizes them using **Gemini 1.5 Pro**, and delivers the output to both a **Notion page** and through **Gmail notifications** for upcoming assignments.
+An AI-powered system that converts unstructured lecture transcripts into structured insights and reminders using LLM agents and automation workflows.
+
+The system processes transcripts from Zoom recordings, extracts key technical insights, generates summaries, and automatically sends reminders to students through integrated productivity tools.
 
 ---
 
 ## Features
 
-- Fetches transcript from Attendee bot API  
-- Uses CrewAI with Gemini Pro (Google GenAI) to generate summaries  
-- Extracts key technical points from computer science lectures  
-- Appends the results to a Notion page  
-- Sends assignment reminders via Gmail API  
+- Fetches lecture transcripts from the Attendee Zoom bot API
+- Uses LLM-powered agents (CrewAI + Gemini 1.5 Pro) for transcript analysis
+- Generates structured outputs including summaries, key concepts, and assignments
+- Automatically updates a Notion knowledge base
+- Sends assignment reminders via Gmail API 
 
 ---
 
-## How It Works
+## Architecture
 
-1. The transcript is pulled from the Attendee Zoom bot (or provided manually).
-2. The first 100–1000 words are passed to a summarization agent.
-3. The agent produces:
-   - A **3–5 paragraph summary**
-   - A **list of technical key points**
-   - Any **assignment reminders**
-4. The result is:
-   - Pushed to Notion (via Notion API)
-   - Sent as an email (via Gmail API)
+The system follows a simple LLM agent pipeline:
+1. Transcript ingestion
+Lecture transcripts are retrieved from the Attendee Zoom bot API or provided manually.
+
+2. Agent-based analysis
+A CrewAI agent powered by Gemini 1.5 Pro processes the transcript and performs:
+- summarization
+- key concept extraction
+- task identification
+
+3. Structured output generation
+The LLM converts unstructured transcript data into structured information including summaries, technical concepts, and assignment reminders.
+
+4. Workflow automation
+The processed results are:
+- stored in Notion via Notion API
+- sent to students via Gmail notifications
 
 ---
 
 ## Technologies Used
 
 - **Python**
-- **CrewAI** – agent coordination
-- **Gemini Pro (Google GenAI)** – LLM summarization
-- **Notion API** – append summary content
-- **Gmail API** – send email reminders
-- **Google OAuth 2.0** – email authentication
+- **CrewAI** – multi-agent workflow orchestration
+- **Gemini Pro (Google GenAI)** – LLM processing
+- **Notion API** – knowledge base integration
+- **Gmail API** – automated reminders
+- **Google OAuth 2.0** – authentication
